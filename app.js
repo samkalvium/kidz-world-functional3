@@ -123,20 +123,27 @@ function updatePrice() {
 
 cartButton.onclick = () => {
   updatePrice();
-
+  var message = "My Cart:\n";
 
   for (let index = 0; index < items.length; index++) {
     if (items[index].quantity != 0) {
-      console.log(
+      message +=
         "Item name: " +
           items[index].name +
           " - Quantity: " +
           items[index].quantity
-      );
+      "\n";
     }
   }
 
+  message+= "The total amount is "+ finalDollars + "$ and "+ finalCents + " cents";
+
   console.log(
-    "The total amount is " + finalDollars + "$ and " + finalCents + " cents"
+    message
   );
+  //  Open WhatsApp
+  // Text box will have preset messages
+
+  window.open("https://wa.me/+917975784749?text=" + encodeURIComponent(message));
 };
+
